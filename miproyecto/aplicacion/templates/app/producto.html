@@ -1,0 +1,77 @@
+{% extends "app/index.html" %}
+
+{% block cabecera %}
+<h1 class="fw-bolder">Libros disponibles</h1>
+
+<div class="mx-auto p-8" style="width: 200px;">
+    <form class="d-flex" role="search" action="{% url 'encontrar_libro' %}" method="get">
+        <input class="form-control me-2" type="text" placeholder="Buscar libro: " aria-label="Search" name="buscar" id="buscar">
+        <button class="btn btn-light" type="submit" value="Buscar">Buscar</button>
+    </form>
+</div>
+
+{% endblock cabecera %}
+
+
+{% block contenido %}
+<div class="d-grid gap-2 col-4 mx-auto my-4">
+    <button type="button" class="btn btn-primary">
+        <a class="navbar-brand" href="{% url 'agregar_libro' %}">Agregar libro a vender</a>
+    </button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Precio</th>
+            <th>Género</th>
+            <th>Fecha Publicacion</th>
+            <th>Celular de contacto</th>
+            <th>Email de contacto</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in productos %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.titulo }}</td>
+            <td>{{ c.autor }}</td>
+            <td>{{ c.precio }}</td>
+            <td>{{ c.genero }}</td>
+            <td>{{ c.fechaPublicacion }}</td>
+            <td>{{ c.celContacto }}</td>
+            <td>{{ c.emailContacto }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="d-grid gap-2 col-4 mx-auto my-4">
+    <button type="button" class="btn btn-primary">
+        <a class="navbar-brand" href="{% url 'agregar_comentario' %}">Agregar comentario</a>
+    </button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Texto</th>
+            <th>Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in comentarios %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.texto }}</td>
+            <td>{{ c.usuario }}</td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
