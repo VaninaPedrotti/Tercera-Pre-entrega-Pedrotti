@@ -1,4 +1,5 @@
 Tercera-Pre-entrega-Pedrotti Vanina
+
 En la pagina principal si hacemos click en SegundaVidaLbros nos lleva al inicio, click en conocer la web, nos lleva a un apartado dentro de la pagina de inicio. 
 Todo esto se encuentra en el index.html dentro de la carpeta tremplates/app
 
